@@ -1,11 +1,12 @@
+//go:build ignore
+
 package main
 
 import (
 	"fmt"
 )
 
-func main()
-{
+func main() {
+	// {
 	fmt.Println("Go has strict rules for curly braces!")
 }
-
