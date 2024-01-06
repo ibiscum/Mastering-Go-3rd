@@ -1,3 +1,5 @@
+//go:build ignore
+
 package main
 
 import "fmt"
@@ -42,4 +44,3 @@ func main() {
 	make2D[1] = []int{-1, -2, -3, -4}
 	fmt.Println(make2D)
 }
-

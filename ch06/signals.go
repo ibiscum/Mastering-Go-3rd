@@ -1,3 +1,5 @@
+//go:build ignore
+
 package main
 
 import (
@@ -24,7 +26,7 @@ func main() {
 			case syscall.SIGINT:
 				duration := time.Since(start)
 				fmt.Println("Execution time:", duration)
-			case syscall.SIGINFO:
+			case syscall.SIGUSR1: // SIGINFO
 				handleSignal(sig)
 				// do not use return here because the goroutine will exit
 				// but the time.Sleep() will continue to work!
