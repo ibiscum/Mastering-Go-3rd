@@ -1,3 +1,5 @@
+//go:build ignore
+
 package main
 
 import (
@@ -22,7 +24,7 @@ func PrintReflection(s interface{}) {
 func PrintSlice[T any](s []T) {
 	fmt.Println("** Generics")
 	for _, v := range s {
-			fmt.Print(v, " ")
+		fmt.Print(v, " ")
 	}
 	fmt.Println()
 }
