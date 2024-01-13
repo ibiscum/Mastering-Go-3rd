@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -8,9 +6,9 @@ import (
 	"regexp"
 )
 
-func matchNameSur(s string) bool {
+func matchInt(s string) bool {
 	t := []byte(s)
-	re := regexp.MustCompile(`^[A-Z][a-z]*$`)
+	re := regexp.MustCompile(`^[-+]?\d+$`)
 	return re.Match(t)
 }
 
@@ -22,6 +20,6 @@ func main() {
 	}
 
 	s := arguments[1]
-	ret := matchNameSur(s)
+	ret := matchInt(s)
 	fmt.Println(ret)
 }

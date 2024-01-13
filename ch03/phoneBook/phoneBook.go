@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -20,7 +18,7 @@ type Entry struct {
 }
 
 // CSVFILE resides in the home directory of the current user
-var CSVFILE = "/Users/mtsouk/csv.data"
+var CSVFILE = "./data.csv"
 
 var data = []Entry{}
 var index map[string]int
@@ -89,6 +87,7 @@ func initS(N, S, T string) *Entry {
 	if T == "" || S == "" {
 		return nil
 	}
+
 	// Give LastAccess a value
 	LastAccess := strconv.FormatInt(time.Now().Unix(), 10)
 	return &Entry{Name: N, Surname: S, Tel: T, LastAccess: LastAccess}
@@ -101,6 +100,7 @@ func insert(pS *Entry) error {
 		return fmt.Errorf("%s already exists", pS.Tel)
 	}
 	data = append(data, *pS)
+
 	// Update the index
 	_ = createIndex()
 
@@ -117,6 +117,7 @@ func deleteEntry(key string) error {
 		return fmt.Errorf("%s cannot be found!", key)
 	}
 	data = append(data[:i], data[i+1:]...)
+
 	// Update the index - key does not exist any more
 	delete(index, key)
 
@@ -157,6 +158,7 @@ func main() {
 
 	// If the CSVFILE does not exist, create an empty one
 	_, err := os.Stat(CSVFILE)
+
 	// If error is not nil, it means that the file does not exist
 	if err != nil {
 		fmt.Println("Creating", CSVFILE)
