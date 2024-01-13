@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -31,7 +29,7 @@ type Book1 []F1
 type Book2 []F2
 
 // CSVFILE resides in the home directory of the current user
-var CSVFILE = ""
+var CSVFILE = "./data.csv"
 var d1 = Book1{}
 var d2 = Book2{}
 

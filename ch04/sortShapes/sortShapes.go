@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -7,7 +5,6 @@ import (
 	"math"
 	"math/rand"
 	"sort"
-	"time"
 )
 
 const min = 1
@@ -83,7 +80,7 @@ func PrintShapes(a shapes) {
 
 func main() {
 	data := shapes{}
-	rand.Seed(time.Now().Unix())
+	// rand.Seed(time.Now().Unix())
 
 	for i := 0; i < 3; i++ {
 		cube := Cube{rF64(min, max)}

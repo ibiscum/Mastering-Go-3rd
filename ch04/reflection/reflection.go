@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -35,6 +33,7 @@ func main() {
 
 		// Check whether there are other structures embedded in Record
 		k := reflect.TypeOf(r.Field(i).Interface()).Kind()
+
 		// Need to convert it to string in order to compare it
 		if k.String() == "struct" {
 			fmt.Println(r.Field(i).Type())

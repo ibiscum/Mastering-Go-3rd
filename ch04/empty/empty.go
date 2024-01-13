@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import "fmt"
@@ -23,8 +21,10 @@ func main() {
 	v2 := S2{F1: -1, F2: v1}
 	Print(v1)
 	Print(v2)
+
 	// Printing an integer
 	Print(123)
+
 	// Printing a string
 	Print("Go is the best!")
 }
