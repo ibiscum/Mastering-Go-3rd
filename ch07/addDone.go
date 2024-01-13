@@ -19,7 +19,7 @@ func main() {
 
 	var waitGroup sync.WaitGroup
 
-	fmt.Printf("%#v\n", waitGroup)
+	fmt.Printf("%#v\n", &waitGroup)
 	for i := 0; i < count; i++ {
 		waitGroup.Add(1)
 		go func(x int) {
@@ -36,7 +36,7 @@ func main() {
 		waitGroup.Done()
 	}
 
-	fmt.Printf("%#v\n", waitGroup)
+	fmt.Printf("%#v\n", &waitGroup)
 	waitGroup.Wait()
 	fmt.Println("\nExiting...")
 }
