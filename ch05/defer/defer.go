@@ -12,6 +12,7 @@ func d1() {
 
 func d2() {
 	for i := 3; i > 0; i-- {
+		i := i
 		defer func() {
 			fmt.Print(i, " ")
 		}()

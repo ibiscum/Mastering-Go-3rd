@@ -16,7 +16,7 @@ func addFloats(message string, s ...float64) float64 {
 }
 
 func everything(input ...interface{}) {
-	fmt.Println(input)
+	fmt.Println(input...)
 }
 
 func main() {
