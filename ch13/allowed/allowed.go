@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -7,10 +5,10 @@ import (
 )
 
 func Same[T comparable](a, b T) bool {
-	if a == b {
-		return true
-	}
-	return false
+	//if a == b {
+	//	return true
+	//}
+	return a == b
 }
 
 func main() {
