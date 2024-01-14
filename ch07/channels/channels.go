@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -48,7 +46,7 @@ func main() {
 	n := 0
 	for i := range ch {
 		fmt.Println(i)
-		if i == true {
+		if i {
 			n++
 		}
 		if n > 2 {

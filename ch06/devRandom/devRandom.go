@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -10,12 +8,11 @@ import (
 
 func main() {
 	f, err := os.Open("/dev/random")
-	defer f.Close()
-
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
+	defer f.Close()
 
 	var seed int64
 	binary.Read(f, binary.LittleEndian, &seed)

@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -7,9 +5,9 @@ import (
 	"time"
 )
 
-func printer(ch chan<- bool) {
-	ch <- true
-}
+// func printer(ch chan<- bool) {
+// 	ch <- true
+// }
 
 func writeToChannel(c chan<- int, x int) {
 	fmt.Println("1", x)
@@ -21,7 +19,7 @@ func f2(out <-chan int, in chan<- int) {
 	x := <-out
 	fmt.Println("Read (f2):", x)
 	in <- x
-	return
+	// return
 }
 
 func main() {

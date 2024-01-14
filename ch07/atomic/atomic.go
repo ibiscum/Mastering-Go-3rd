@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -18,7 +16,7 @@ func (c *atomCounter) Value() int64 {
 
 func main() {
 	X := 100
-	Y := 4
+	Y := 100
 	var waitGroup sync.WaitGroup
 	counter := atomCounter{}
 	for i := 0; i < X; i++ {

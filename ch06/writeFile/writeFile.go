@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -18,7 +16,7 @@ func main() {
 		return
 	}
 	defer f1.Close()
-	fmt.Fprintf(f1, string(buffer))
+	fmt.Fprint(f1, string(buffer))
 
 	f2, err := os.Create("/tmp/f2.txt")
 	if err != nil {
@@ -26,7 +24,12 @@ func main() {
 		return
 	}
 	defer f2.Close()
+
 	n, err := f2.WriteString(string(buffer))
+	if err != nil {
+		fmt.Println("Cannot write", err)
+		return
+	}
 	fmt.Printf("wrote %d bytes\n", n)
 
 	f3, err := os.Create("/tmp/f3.txt")
@@ -35,7 +38,12 @@ func main() {
 		return
 	}
 	w := bufio.NewWriter(f3)
+
 	n, err = w.WriteString(string(buffer))
+	if err != nil {
+		fmt.Println("Cannot write", err)
+		return
+	}
 	fmt.Printf("wrote %d bytes\n", n)
 	w.Flush()
 
