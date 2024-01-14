@@ -1,5 +1,3 @@
-//go:build ignore
-
 package main
 
 import (
@@ -22,7 +20,7 @@ func main() {
 	fmt.Printf("Going to create %d goroutines.\n", count)
 
 	var waitGroup sync.WaitGroup
-	fmt.Printf("%#v\n", waitGroup)
+	fmt.Printf("%#v\n", &waitGroup)
 	for i := 0; i < count; i++ {
 		waitGroup.Add(1)
 		go func(x int) {
@@ -31,7 +29,7 @@ func main() {
 		}(i)
 	}
 
-	fmt.Printf("%#v\n", waitGroup)
+	fmt.Printf("%#v\n", &waitGroup)
 	waitGroup.Wait()
 	fmt.Println("\nExiting...")
 }
