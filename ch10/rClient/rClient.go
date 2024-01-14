@@ -35,11 +35,11 @@ func deleteEndpoint(server string, user User) int {
 	}
 
 	resp, err := c.Do(req)
-	defer resp.Body.Close()
-
 	if err != nil {
 		fmt.Println("Error:", err)
 	}
+	defer resp.Body.Close()
+
 	if resp == nil {
 		return http.StatusNotFound
 	}
@@ -68,11 +68,11 @@ func getEndpoint(server string, user User) int {
 	}
 
 	resp, err := c.Do(req)
-	defer resp.Body.Close()
-
 	if err != nil {
 		fmt.Println("Error:", err)
 	}
+	defer resp.Body.Close()
+
 	if resp == nil {
 		return http.StatusNotFound
 	}
@@ -101,6 +101,9 @@ func addEndpoint(server string, user User) int {
 	}
 
 	resp, err := c.Do(req)
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
 	defer resp.Body.Close()
 
 	if resp == nil || (resp.StatusCode == http.StatusNotFound) {
@@ -122,6 +125,9 @@ func timeEndpoint(server string) (int, string) {
 	}
 
 	resp, err := c.Do(req)
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
 	defer resp.Body.Close()
 
 	if resp == nil || (resp.StatusCode == http.StatusNotFound) {
@@ -144,6 +150,9 @@ func slashEndpoint(server, URL string) (int, string) {
 	}
 
 	resp, err := c.Do(req)
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
 	defer resp.Body.Close()
 
 	if resp == nil {
