@@ -24,7 +24,7 @@ func main() {
 			case syscall.SIGINT:
 				duration := time.Since(start)
 				fmt.Println("Execution time:", duration)
-			case syscall.SIGUSR1: // SIGINFO
+			case syscall.SIGHUP: // SIGUSR1
 				handleSignal(sig)
 				// do not use return here because the goroutine will exit
 				// but the time.Sleep() will continue to work!
