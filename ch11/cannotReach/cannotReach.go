@@ -7,14 +7,14 @@ import (
 
 func S2() {
 	return
-	fmt.Println("Hello!")
+	fmt.Println("Hello!") //nolint
 }
 
 func S1() {
 	fmt.Println("In S1()")
 	return
 
-	fmt.Println("Leaving S1()")
+	fmt.Println("Leaving S1()") //nolint
 }
 
 func main() {
