@@ -59,7 +59,10 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	pprof.StartCPUProfile(cpuFile)
+	err = pprof.StartCPUProfile(cpuFile)
+	if err != nil {
+		panic(err)
+	}
 	defer pprof.StopCPUProfile()
 
 	total := 0
@@ -105,9 +108,7 @@ func main() {
 
 	for i := 0; i < 10; i++ {
 		s := make([]byte, 50000000)
-		if s == nil {
-			fmt.Println("Operation failed!")
-		}
+		fmt.Println(len(s))
 		time.Sleep(50 * time.Millisecond)
 	}
 
