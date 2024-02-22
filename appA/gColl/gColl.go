@@ -11,7 +11,8 @@ func printStats(mem runtime.MemStats) {
 	fmt.Println("mem.Alloc:", mem.Alloc)
 	fmt.Println("mem.TotalAlloc:", mem.TotalAlloc)
 	fmt.Println("mem.HeapAlloc:", mem.HeapAlloc)
-	fmt.Println("mem.NumGC:", mem.NumGC, "\n")
+	fmt.Println("mem.NumGC:", mem.NumGC)
+	fmt.Println()
 }
 
 func main() {
@@ -21,18 +22,15 @@ func main() {
 	for i := 0; i < 10; i++ {
 		// Allocating 50,000,000 bytes
 		s := make([]byte, 50000000)
-		if s == nil {
-			fmt.Println("Operation failed!")
-		}
+		println(len(s))
 	}
 	printStats(mem)
 
 	for i := 0; i < 10; i++ {
 		// Allocating 100,000,000 bytes
 		s := make([]byte, 100000000)
-		if s == nil {
-			fmt.Println("Operation failed!")
-		}
+		println(len(s))
+
 		time.Sleep(5 * time.Second)
 	}
 	printStats(mem)
