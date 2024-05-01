@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"html"
 	"io"
 	"log"
 	"net/http"
@@ -130,7 +131,7 @@ func deleteHandler(w http.ResponseWriter, r *http.Request) {
 		if user.Password == DATA[user.Username] {
 			delete(DATA, user.Username)
 			w.WriteHeader(http.StatusOK)
-			fmt.Fprintf(w, "%s\n", d)
+			fmt.Fprintf(w, "%s\n", html.EscapeString(string(d)))
 			log.Println(DATA)
 		}
 	} else {
@@ -139,7 +140,7 @@ func deleteHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Delete - Resource not found!", http.StatusNotFound)
 	}
 	log.Println("After:", DATA)
-	return
+	// return
 }
 
 func main() {
