@@ -61,7 +61,7 @@ func addHandler(w http.ResponseWriter, r *http.Request) {
 
 	if user.Username != "" {
 		DATA[user.Username] = user.Password
-		log.Println(DATA)
+		log.Println("Added user:", user.Username, "total users:", len(DATA))
 		w.WriteHeader(http.StatusOK)
 	} else {
 		http.Error(w, "Error:", http.StatusBadRequest)
@@ -124,7 +124,7 @@ func deleteHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Unmarshal - Error", http.StatusBadRequest)
 		return
 	}
-	log.Println(user)
+	log.Println("Delete requested for user:", user.Username)
 
 	_, ok := DATA[user.Username]
 	if ok && user.Username != "" {
@@ -132,14 +132,14 @@ func deleteHandler(w http.ResponseWriter, r *http.Request) {
 			delete(DATA, user.Username)
 			w.WriteHeader(http.StatusOK)
 			fmt.Fprintf(w, "%s\n", html.EscapeString(string(d)))
-			log.Println(DATA)
+			log.Println("Deleted user:", user.Username, "remaining users:", len(DATA))
 		}
 	} else {
 		log.Println("User", user.Username, "Not found!")
 		w.WriteHeader(http.StatusNotFound)
 		http.Error(w, "Delete - Resource not found!", http.StatusNotFound)
 	}
-	log.Println("After:", DATA)
+	log.Println("Delete handler complete; total users:", len(DATA))
 	// return
 }
 
