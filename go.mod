@@ -4,7 +4,7 @@ go 1.26.0
 
 require (
 	github.com/mactsouk/post05 v0.0.0-20210707111726-e78445111bbb
-	golang.org/x/sync v0.23.0
+	golang.org/x/sync v0.24.0
 )
 
 require (
